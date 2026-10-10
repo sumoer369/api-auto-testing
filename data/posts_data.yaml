@@ -1,0 +1,29 @@
+get_cases:
+  - case_name: "获取文章1-正常"
+    post_id: 1
+    expected_status: 200
+    expected_user_id: 1
+
+  - case_name: "获取文章50-正常"
+    post_id: 50
+    expected_status: 200
+
+  - case_name: "获取不存在的文章"
+    post_id: 99999
+    expected_status: 404
+
+create_cases:
+  - case_name: "创建文章-正常"
+    payload:
+      title: "测试标题"
+      body: "测试内容"
+      userId: 1
+    expected_status: 201
+    expected_title: "测试标题"
+
+  - case_name: "创建文章-空标题"
+    payload:
+      title: ""
+      body: "测试内容"
+      userId: 1
+    expected_status: 201
